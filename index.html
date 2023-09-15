@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo buoi 5</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <h1 class="bg-success text-white">CyberSoft</h1>
+    <section class="Bai1 mb-5">
+      <h2 class="bg-danger text-white">Bài 1: Quản lý tuyển sinh</h2>
+      <div class="card w-50 mx-auto">
+        <div class="card-header bg-black text-white text-center">
+          Kết quả tuyển sinh
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <p>Điểm chuẩn của hội đồng:</p>
+            <input type="number" id="benchMark" />
+          </div>
+          <div class="form-group mt-3">
+            <p>Điểm môn 1:</p>
+            <input type="number" id="subjectScore1" />
+          </div>
+          <div class="form-group mt-3">
+            <p>Điểm môn 2:</p>
+            <input type="number" id="subjectScore2" />
+          </div>
+          <div class="form-group mt-3">
+            <p>Điểm môn 3:</p>
+            <input type="number" id="subjectScore3" />
+          </div>
+          <div class="form-group mt-3">
+            <p>Khu vực ưu tiên (Nhập X nếu không thuộc khu vực ưu tiên):</p>
+            <input type="text" id="Area" />
+          </div>
+          <div class="form-group mt-3">
+            <p>Đối tượng ưu tiên (Nhập 0 nếu không thuộc đối tượng ưu tiên):</p>
+            <input type="number" id="Object" />
+          </div>
+        </div>
+        <div class="card-footer text-center">
+          <button
+            id="btnResult"
+            class="btn btn-primary"
+            onclick="checkTheResult()"
+          >
+            Kiểm tra kết quả
+          </button>
+          <p id="result1"></p>
+        </div>
+      </div>
+    </section>
+    <section class="Bai2 mb-5">
+      <h2 class="bg-danger text-white">Bài 2: Tính tiền điện</h2>
+      <div class="card w-50 mx-auto">
+        <div class="card-header bg-black text-white text-center">
+          Tính tiền điện
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <p>Tên khách hàng:</p>
+            <input type="text" id="name" class="form-control" /><br />
+          </div>
+          <div class="form-group">
+            <p>Số kW tiêu thụ:</p>
+            <input type="number" id="kwh" class="form-control" />
+          </div>
+        </div>
+        <div class="card-footer text-center">
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="calculateElectricityBill()"
+          >
+            Tính tiền
+          </button>
+          <p>Kết quả: <span id="result2"></span></p>
+        </div>
+      </div>
+    </section>
+    <section class="Bai3 mb-5">
+      <h2 class="bg-danger text-white">Bài 3: Tính thuế thu nhập cá nhân</h2>
+      <div class="card w-50 mx-auto">
+        <div class="card-header bg-black text-white text-center">Tính thuế</div>
+        <div class="card-body">
+          <div class="form-group">
+            <p>Họ và Tên:</p>
+            <input type="text" id="fullName" class="form-control" /><br />
+          </div>
+          <div class="form-group">
+            <p>Tổng Thu Nhập Năm (triệu đồng):</p>
+            <input type="number" id="annualIncome" class="form-control" /><br />
+          </div>
+          <div class="form-group">
+            <p>Số Người Phụ Thuộc:</p>
+            <input type="number" id="dependents" class="form-control" /><br />
+          </div>
+        </div>
+        <div class="card-footer text-center">
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="calculateTax()"
+          >
+            Tính Thuế
+          </button>
+          <p id="result3"></p>
+        </div>
+      </div>
+    </section>
+    <section class="Bai4">
+      <h2 class="bg-danger text-white">Bài 4: Tính hóa đơn cáp</h2>
+      <div class="card w-50 mx-auto">
+        <div class="card-header bg-black text-white text-center">Tiền cáp</div>
+        <div class="card-body">
+          <div class="form-group">
+            <p>Loại khách hàng:</p>
+            <select id="customerType" onchange="toggleConnectionInput()">
+              <option value="nhaDan">Nhà dân</option>
+              <option value="doanhNghiep">Doanh nghiệp</option>
+            </select>
+          </div>
+          <div class="form-group mt-3">
+            <p>Số kết nối:</p>
+            <input type="number" id="connectionCount" min="1" value="1" />
+          </div>
+          <div class="form-group mt-3">
+            <p>Số kênh cao cấp:</p>
+            <input type="number" id="premiumChannels" min="0" value="0" />
+          </div>
+        </div>
+        <div class="card-footer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="calculateBill()"
+          >
+            Tính hóa đơn
+          </button>
+          <p>Hóa đơn của bạn: <span id="billAmount"></span></p>
+        </div>
+      </div>
+    </section>
+    <script src="./index.js"></script>
+  </body>
+</html>
